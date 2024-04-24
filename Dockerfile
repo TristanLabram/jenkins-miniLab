@@ -10,3 +10,6 @@ RUN npm install
 
 CMD [ "npm","start" ]
 
+RUN echo pwd
+
+RUN ls
