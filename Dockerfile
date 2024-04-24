@@ -4,6 +4,6 @@ RUN apt update
 
 RUN apt install npm -y
 
-RUN npm -v
+RUN npm cache clean
 
 RUN npm install express
