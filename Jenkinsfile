@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Run') {
       steps {
-        sh 'node index.js'
+        sh 'node /usr/app/index.js'
       }
     }
   }
