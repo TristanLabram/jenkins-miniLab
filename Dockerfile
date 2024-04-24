@@ -2,6 +2,11 @@ FROM node:latest
 
 RUN apt update
 
-RUN apt install npm -y
+WORKDIR /usr/app
+
+COPY ./ /usr/app
+
+RUN npm install
 
 CMD [ "npm","start" ]
+
