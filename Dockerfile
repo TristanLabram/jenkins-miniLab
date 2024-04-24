@@ -2,6 +2,6 @@ FROM node:latest
 
 RUN apt update
 
-RUN apt install npm -y
+RUN apt install npm
 
-RUN npm -v
+RUN npm intsall express
