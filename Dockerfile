@@ -13,3 +13,5 @@ CMD [ "npm","start" ]
 RUN pwd
 
 RUN ls
+
+RUN npm install express
