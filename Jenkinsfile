@@ -3,7 +3,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'node index.js'
+        sh 'npm install'
+      }
+    }
+    stage('Run') {
+      steps {
+        sh 'index.js'
       }
     }
   }
