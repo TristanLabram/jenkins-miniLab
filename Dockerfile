@@ -8,6 +8,8 @@ COPY ./ /usr/app
 
 RUN npm install
 
+EXPOSE 5000/tcp
+
 CMD [ "npm","start" ]
 
 RUN pwd
