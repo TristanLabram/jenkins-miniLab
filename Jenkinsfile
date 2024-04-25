@@ -18,12 +18,12 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          CURL_RESPONSE = sh (
+          env.CURL_RESPONSE = sh (
             script: 'curl -s localhost:5000',
             returnStdout: true
           )
-          echo "${CURL_RESPONSE}"
-          if (CURL_RESPONSE == "Hello World!"){
+          echo "${env.CURL_RESPONSE}"
+          if (env.CURL_RESPONSE != "Hello World!"){
             sh 'exit 1'
           }
         }
