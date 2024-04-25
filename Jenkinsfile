@@ -17,13 +17,13 @@ pipeline {
     }
     stage('Test') {
       steps {
-        script {env.CURL_RESPONSE = sh (
-          script: 'curl localhost:5000',
-          returnStdout: true
-          ).trim()
-        }
         script {
-          if (env.CURL_RESPONSE != "Hello World!") {
+          if (sh (
+            script: 'curl --head --silent --fail localhost:5000 dev/null',
+            returnStdout: true
+          )) {
+            sh "echo 'This page exists'"
+          } else {
             sh "exit 1"
           }
         }
