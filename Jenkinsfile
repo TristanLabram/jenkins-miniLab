@@ -31,7 +31,7 @@ pipeline {
     }
     stage('Clean up') {
       steps {
-        sh 'echo "${env.CURL_RESPONSE}'
+        sh 'echo "${env.CURL_RESPONSE}"'
       }
     }
   }
