@@ -34,6 +34,8 @@ pipeline {
         script {
            echo "${env.CURL_RESPONSE}"
         }
+        sh 'docker stop test-container'
+        sh 'docker image rm test-image'
       }
     }
   }
