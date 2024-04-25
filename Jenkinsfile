@@ -28,9 +28,12 @@ pipeline {
           }
         }*/
         script {
-          env.CURL_RESPONSE = sh 'curl -s localhost:5000'
+          env.CURL_RESPONSE = sh (
+            script: 'curl -s localhost:5000',
+            returnStdout: true
+          )
+          echo "${env.CURL_RESPONSE}"
         }
-        sh 'echo "${env.CURL_RESPONSE}"'
       }
     }
   }
