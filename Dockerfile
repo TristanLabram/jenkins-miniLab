@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:21-alpine3.18
 
 RUN apt update
 
@@ -10,10 +10,12 @@ COPY package*.json /usr/app/
 
 RUN npm install
 
-COPY / /usr/app/
+COPY . /usr/app/
 
 EXPOSE 5000
 
 CMD [ "npm", "run", "start" ]
 
 RUN npm install express
+
+CMD ["node", "index.js"]
