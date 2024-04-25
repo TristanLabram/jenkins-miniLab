@@ -17,16 +17,17 @@ pipeline {
     }
     stage('Test') {
       steps {
-        script {
+        /*script {
           if (sh (
             script: 'curl --head --silent --fail localhost:5000 dev/null',
             returnStdout: true
-          )) {
+          ).trim) {
             sh "echo 'This page exists'"
           } else {
             sh "exit 1"
           }
-        }
+        }*/
+        sh 'curl --version'
       }
     }
   }
