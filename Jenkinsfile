@@ -1,10 +1,14 @@
 pipeline {
-  agent { dockerfile true }
+  agent any
   stages {
+    stage('Build') {
+      steps {
+        sh 'docker build . -t test-image'
+      }
+    }
     stage('Run') {
       steps {
-        sh 'node /usr/app/index.js'
-        sh 'curl http://localhost:5000/'
+        sh 'docker run -d -p 5000:5000 -- name test-container test-image
       }
     }
   }
