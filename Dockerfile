@@ -1,7 +1,5 @@
 FROM node:21-alpine3.18
 
-RUN apt update
-
 RUN mkdir -p /usr/app
 
 WORKDIR /usr/app
