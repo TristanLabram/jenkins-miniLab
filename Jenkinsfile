@@ -24,7 +24,7 @@ pipeline {
           )
           echo "${CURL_RESPONSE}"
           if (CURL_RESPONSE == "Hello World!"){
-            exit 1
+            sh 'exit 1'
           }
         }
       }
