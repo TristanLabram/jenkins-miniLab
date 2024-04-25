@@ -27,7 +27,10 @@ pipeline {
             sh "exit 1"
           }
         }*/
-        sh 'curl -s localhost:5000'
+        script {
+          env.CURL_RESPONSE = sh 'curl -s localhost:5000'
+        }
+        sh 'echo "${env.CURL_RESPONSE}"'
       }
     }
   }
