@@ -27,7 +27,7 @@ pipeline {
             sh "exit 1"
           }
         }*/
-        sh 'curl :- http://localhost:5000'
+        sh 'curl localhost:5000'
       }
     }
   }
