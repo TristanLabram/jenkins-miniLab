@@ -2,18 +2,18 @@ FROM node:latest
 
 RUN apt update
 
+RUN mkdir -p /usr/app
+
 WORKDIR /usr/app
 
-COPY ./ /usr/app
+COPY package*.json /usr/app/
 
 RUN npm install
 
-EXPOSE 5000/tcp
+COPY / /usr/app/
 
-CMD [ "npm","start" ]
+EXPOSE 5000
 
-RUN pwd
-
-RUN ls
+CMD [ "npm", "run", "start" ]
 
 RUN npm install express
