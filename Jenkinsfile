@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  environment {
+    CURL_RESPONSE = 'null'
+  }
   stages {
     stage('Build') {
       steps {
@@ -14,12 +17,15 @@ pipeline {
     }
     stage('Test') {
       steps {
-        CURL_RESPONSE = sh (
+        script {env.CURL_RESPONSE = sh (
           script: 'curl localhost:5000',
           returnStdout: true
-        ).trim()
-        if (CURL_RESPONSE != "Hello World!") {
-          sh "exit 1"
+          ).trim()
+        }
+        script {
+          if (env.CURL_RESPONSE != "Hello World!") {
+            sh "exit 1"
+          }
         }
       }
     }
