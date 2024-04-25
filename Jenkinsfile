@@ -1,8 +1,8 @@
 pipeline {
   agent any
-  environment {
+  /*environment {
     CURL_RESPONSE = 'null'
-  }
+  }*/
   stages {
     stage('Build') {
       steps {
@@ -17,22 +17,12 @@ pipeline {
     }
     stage('Test') {
       steps {
-        /*script {
-          if (sh (
-            script: 'curl --head --silent --fail localhost:5000 dev/null',
-            returnStdout: true
-          ).trim) {
-            sh "echo 'This page exists'"
-          } else {
-            sh "exit 1"
-          }
-        }*/
         script {
-          env.CURL_RESPONSE = sh (
+          CURL_RESPONSE = sh (
             script: 'curl -s localhost:5000',
             returnStdout: true
           )
-          echo "${env.CURL_RESPONSE}"
+          echo "${CURL_RESPONSE}"
         }
       }
     }
