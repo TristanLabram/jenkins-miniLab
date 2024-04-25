@@ -23,6 +23,9 @@ pipeline {
             returnStdout: true
           )
           echo "${CURL_RESPONSE}"
+          if (${CURL_RESPONSE} != "Hello World!"){
+            exit 1
+          }
         }
       }
     }
