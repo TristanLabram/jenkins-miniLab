@@ -23,7 +23,7 @@ pipeline {
             returnStdout: true
           )
           echo "${env.CURL_RESPONSE}"
-          if (env.CURL_RESPONSE != "Goodbye Cruel World!!"){
+          if (env.CURL_RESPONSE != "Hello World!"){
             sh 'exit 1'
           }
         }
